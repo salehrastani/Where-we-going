@@ -28,3 +28,22 @@ We would love for you to help make the skeleton more awesome, There are three wa
 3. Code review an open pull request!
 
 Be prepared to give and receive specific, actionable, and kind feedback!
+
+User Stories:
+- iwt sign in and sign up (using facebook)
+- iwt setup an event
+- iwt invite other users to my event(private & public)
+- iwt find a place for my event:
+  -  use yelp to find the place
+    - find location
+    - find pricing
+    - type of food
+- iwt find location with google maps
+- iwt sign up for someone elses event
+- iwt get a sms telling me to be on time thirty-minutes before event
+- iwt see the event on my google calendars
+
+
+
+
+
