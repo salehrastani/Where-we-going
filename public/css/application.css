@@ -1,0 +1,82 @@
+*{
+  font-family: 'Raleway', sans-serif;
+}
+
+.header {
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 0.5em;
+}
+
+.header h1 {
+  word-spacing: 20px;
+}
+
+.header hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.container {
+  width: 800px;
+  position: absolute;
+  /* margin: 0 auto; */
+}
+
+table {
+  background-color: #d3d3d3;
+  width: 300px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.title {
+  line-height: 2em;
+}
+
+#signin .title {
+  background-color: slategrey;
+}
+
+
+.enter {
+  margin: 10px 100px;
+  width: 75px;
+}
+
+input {
+  width: 200px;
+  margin: 3px 40px 0px 40px;
+  line-height: 2em;
+  background-color: #d3d3d3;
+  border: 1px solid white;
+}
+
+
+#register .title {
+  background-color: lightblue;
+}
+
+button {
+  line-height: 3em;
+  background-color: #d3d3d3;
+  margin: 0 auto;
+}
+
+button a:link {
+  color: black;
+  text-decoration: none;
+}
+
+.options_title {
+  background-color: slategrey;
+  height: 40px;
+  padding-left: 50px;
+}
+
+.options_title h1 {
+  text-shadow: 1px 1px #98AFC7;
+/* text-shadow: 1px 1px 0px rgba(0,0,0,0.2); */
+}
