@@ -1,38 +1,38 @@
 
   <div id="signin">
-    <form action="/login" method="post">
+    <form action="/signin" method="post">
     <table>
       <th class="title">SIGN IN</th>
 
       <tr>
         <td>
-          <input type="text" name="email" placeholder="email">
+          <input type="text" name="user[username]" placeholder="username">
         </td>
       </tr>
 
       <tr>
         <td>
-         <input type="text" name="password" placeholder="password"></td>
+         <input type="text" name="user[password]" placeholder="password"></td>
        </td>
      </tr>
 
      <tr>
       <td>
-      <input type="button" class="enter" value="Sign In">
+      <input type="submit" class="enter" value="Sign In">
       </td>
     </tr>
   </table>
 </form>
 </div>
 
-<div id="register">
-  <form action="/users/new" method="post">
+<div id="signup">
+  <form action="/signup" method="post">
     <table>
-      <th class="title">REGISTER</th>
+      <th class="title">SIGN UP</th>
 
       <tr>
         <td>
-          <input type="text" name="email" placeholder="email"></td>
+          <input type="text" name="username" placeholder="username"></td>
         </td>
       </tr>
 
@@ -44,13 +44,13 @@
 
      <tr>
       <td>
-       <input type="text" name="password" placeholder="re-enter password"></td>
+       <input type="text" name="repassword" placeholder="re-enter password"></td>
      </td>
    </tr>
 
    <tr>
     <td>
-      <input type="button" class="enter" value="Register">
+      <input type="submit" class="enter" value="Sign Up">
     </td>
   </tr>
 

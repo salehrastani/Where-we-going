@@ -1,14 +1,14 @@
 
 def login
-  begin
-    @user = User.find_by(username: params[:username])
-    session[:user_id] = @user.id if @user.password == params[:password]
+  @authenticate = User.find_by (params[:user])
+  if @authenticate
+    session[:id] = @authenticate.id
     return true
-  rescue
+  else
     return false
   end
 end
 
-def logged_in?
-  !session[:user_id].blank?
-end
+# def logged_in?
+#   !session[:user_id].blank?
+# end
