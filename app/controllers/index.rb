@@ -22,10 +22,15 @@ post '/signin' do
 end
 
 post '/signup' do
-# register
-  user = User.new(username: params[:username])
-  user.password = params[:password]
-  user.save
-  session[:user_id] = user.id
-  redirect "/users/#{user_id}"
+
+  if params[:password] == params[:re_password]
+    user = User.new(username: params[:username], name: params[:name], password: params[:password])
+    user.save
+  end
+  if user
+    session[:id] = user.id
+    redirect "/success"
+  else
+    redirect '/fail'
+  end
 end

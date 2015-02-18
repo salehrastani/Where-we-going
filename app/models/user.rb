@@ -2,8 +2,10 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   has_and_belongs_to_many :events
+  validates :username, :password, :name, presence: true
+  validates :username, uniqueness: true
 
-    include BCrypt
+  include BCrypt
 
   def password
     @password ||= Password.new(password_hash)
