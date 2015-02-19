@@ -1,7 +1,7 @@
 
 def login
 
-  authenticate = User.find_by(username: params[:username])
+  authenticate = User.find_by(username: (params[:username]).downcase)
   return false if authenticate.nil?
   if authenticate.password == params[:password]
     session[:id] = authenticate.id

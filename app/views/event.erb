@@ -1,0 +1,18 @@
+<div class="event-container">
+  <article id="<%= @event.id %>">
+    <h2><%= @event.title %></h2>
+    <p class='votes'>Votes: <%= @event.votes.count %></p>
+    <p class='username'>Event-Manager: <%= User.find(@event.user_id).username %></p>
+    <p class='date'><%=@event.date%>date</p>
+  </article>
+</div>
+<%i=1%>
+<%@event.options.each do |option|%>
+<div class="options">
+  <p><%=i%>. <a href='/events/<%= option.id %>/vote' class="vote-button"><img src ="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-5/24/navigate-up-icon.png">
+</a>Place: <%=option.name%></p>
+  <p>Votes: <%=option.votes.count%></p>
+  <p>Address: <%=option.location%></p>
+</div>
+<%i+=1%>
+<%end%>

@@ -22,7 +22,7 @@
 .container {
   width: 800px;
   position: absolute;
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
 
 table {
@@ -55,7 +55,7 @@ input {
 }
 
 
-#register .title {
+#signup .title {
   background-color: lightblue;
 }
 

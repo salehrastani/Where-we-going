@@ -2,24 +2,24 @@
 require 'faker'
 
 3.times do
-  user = User.new(email: Faker::Internet.email)
-  user.password = Faker::Lorem.word
+  user = User.new(username: Faker::Internet.user_name, password: Faker::Lorem.word, name: Faker::Name.name)
   user.save
 end
 
 
 User.all.each do |user|
-  user.surveys.create(name: Faker::Name.name)
+  user.events.create(title: Faker::Name.title)
 end
 
-Survey.all.each do |survey|
+Event.all.each do |event|
   2.times do
-    survey.questions.create(content: Faker::Lorem.sentence)
+    event.options.create(name: Faker::Name.first_name, location: Faker::Address.street_address)
   end
 end
 
-Question.all.each do |question|
+Option.all.each do |option|
   3.times do
-    question.answer_choices.create(choice: Faker::Lorem.sentence)
+    option.votes.create(user_id: rand(1..3), event_id: rand(1..3))
   end
 end
+
