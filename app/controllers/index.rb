@@ -1,5 +1,4 @@
 get '/' do
-
   erb :index
 end
 
@@ -7,15 +6,27 @@ get '/fail' do
   erb :fail
 end
 
-get '/users/:id' do
-  @user = User.find(session[:id])
-  @all_events = Event.all
+get '/users' do
   erb :all_events
 end
 
-get '/events/:id' do
-  @event = Event.find(params[:id])
-  erb :event
+get '/events' do
+  user = User.find(session[:id])
+  all_events = Event.all
+  data = []
+  all_events.each do |event|
+   data << {event: event, votes: event.votes, manager: User.find(event.user_id)}
+ end
+ data.to_json
+end
+
+get '/event_options' do
+  event = Event.find(params[:id])
+  data = []
+  event.options.each do |option|
+    data << {option: option, option_votes: option.votes}
+  end
+  data.to_json
 end
 
 # get '/events/:id/options'
@@ -29,7 +40,7 @@ end
 
 post '/signin' do
   if login
-    redirect "/users/#{session[:id]}"
+    redirect "/users"
   else
     redirect '/fail'
   end
@@ -42,7 +53,7 @@ post '/signup' do
   end
   if user
     session[:id] = user.id
-    redirect "/users/#{session[:id]}"
+    redirect "/users"
   else
     redirect '/fail'
   end

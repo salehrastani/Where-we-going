@@ -1,18 +1,12 @@
 
 <div class='all-events-container'>
 
-  <%i=1%>
-  <% @all_events.each do |event| %>
-    <article id="article<%= event.id %>">
-      <h2><%=i%>. <a href='/events/<%= event.id %>' id="event-title"><%= event.title %></a></h2>
-      <p>
-        <span class='votes'><%= event.votes.count %></span>
-        <span class='username'><%= User.find(event.user_id).username %></span>
-        <span class='date'><%= event.date%>date</span>
-      </p>
-    </article>
-    <%i+=1%>
-  <% end %>
-</div>
 
+
+</div>
 <button><a href="#">Add Event</a></button>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  getEvents();
+});</script>

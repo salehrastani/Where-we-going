@@ -8,7 +8,7 @@ end
 
 
 User.all.each do |user|
-  user.events.create(title: Faker::Name.title)
+  user.events.create(title: Faker::Name.title, )
 end
 
 Event.all.each do |event|
