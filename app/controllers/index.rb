@@ -3,21 +3,14 @@ get '/' do
   erb :index
 end
 
-get '/success' do
-  erb :success
-end
-
 get '/fail' do
   erb :fail
 end
 
-get '/users' do
-  contentType :json
-  user = User.find(session[:id])
-  # send to javacript?
-  all_events = Event.all
-  return {all_events: all_events}.to_json
-  # erb :all_events
+get '/users/:id' do
+  @user = User.find(session[:id])
+  @all_events = Event.all
+  erb :all_events
 end
 
 get '/events/:id' do
@@ -25,15 +18,14 @@ get '/events/:id' do
   erb :event
 end
 
-get '/events/:id/options'
-  @event = Event.find(params[:id])
-  contentType= "json"
-  {@event.options}.to_json
-end
+# get '/events/:id/options'
+#   @event = Event.find(params[:id])
 
-get '/options/:id/vote' do
-  @option = Option.find(params[:id])
-end
+# end
+
+# get '/options/:id/vote' do
+#   @option = Option.find(params[:id])
+# end
 
 post '/signin' do
   if login

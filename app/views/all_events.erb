@@ -1,8 +1,6 @@
 
 <div class='all-events-container'>
 
-
-
   <%i=1%>
   <% @all_events.each do |event| %>
     <article id="article<%= event.id %>">
@@ -18,7 +16,3 @@
 </div>
 
 <button><a href="#">Add Event</a></button>
-
-
-<span><a class="edit" href='/posts/<%= @event.id %>'>edit</a></span>
-<span><a class="delete" href='/posts/<%= @event.id %>'>delete</a></span>
