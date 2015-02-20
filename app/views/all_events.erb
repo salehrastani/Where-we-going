@@ -4,10 +4,13 @@
 
 
 </div>
-<button><a href="#">Add Event</a></button>
+
+<button id="add-event"><a href="/event_new">Add Event</a></button>
 
 <script type="text/javascript">
 $(document).ready(function() {
-  getEvents();
-  setupEventLinks();
+  setupEvents();
+  setupOptions();
+  voteUp();
+  // addEvent();
 });</script>
