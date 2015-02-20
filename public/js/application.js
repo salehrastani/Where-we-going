@@ -15,20 +15,22 @@ function getEvents() {
 }
 
 function appendAllEvents(json) {
-  $('.all-events-container').append("<div id ='"+json.event.id+"'></div>");
-  $("#"+json.event.id).append("<h2><a class='event-title' href='#' onclick='return false;'>"+json.event.title+"</a></h2>");
-  $("#"+json.event.id).append("<span>"+json.votes.length+"</span>");
-  $("#"+json.event.id).append("<span>"+json.manager.username+"</span>");
-  $("#"+json.event.id).append("<span>"+json.event.date+"Febuary, 14 2015"+"</span>");
-  setupEventLinks();
+  $('.all-events-container').append("<div id ='event"+json.event.id+"'></div>");
+  $("#event"+json.event.id).append("<h2><a class='event-title' href='#' onclick='return false;'>"+json.event.title+"</a></h2>");
+  $("#event"+json.event.id).append("<span>"+json.votes.length+"</span>");
+  $("#event"+json.event.id).append("<span>"+json.manager.username+"</span>");
+  $("#event"+json.event.id).append("<span>"+json.event.date+"Febuary, 14 2015"+"</span>");
+  // setupEventLinks();
 }
 
 
 
 
 function setupEventLinks() {
-  $(".event-title").on("click", function(){
+  $(".all-events-container").on("click", 'a', function(){
+    // debugger
     var that = this
+
     $.ajax({
       url: '/event_options',
       type: 'GET',
@@ -36,21 +38,21 @@ function setupEventLinks() {
       data: {id: $(that).parents("div")[0].id},
     })
     .done(function(response) {
+
       response.forEach(function(object){
-        debugger
         appendEventOptions(object);
       })
-    })
-    .fail(function() {
-      console.log("error");
     })
   })
 }
 
 function appendEventOptions(json){
-  // $("#"+json.option.event_id).append("<a href="#" onclick ='return false' id = /vote' class="vote-button">""<img src ="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-5/24/navigate-up-icon.png">"
-}
 
+$("#event"+json.option.event_id).append("<div id='option"+json.option.id+"'></div>")
+$("#option"+json.option.id).append("<p><a href='#' onclick ='return false;' id='vote'"+json.option.id+"><img src ='http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-5/24/navigate-up-icon.png'></a><span>"+json.option.name+"</span>")
+$("#option"+json.option.id).append("<span>"+json.votes.length+"</span>")
+$("#option"+json.option.id).append("<span>"+json.option.location+"</span>")
+}
 
 
 
